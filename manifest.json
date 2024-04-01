@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "PCO Extension",
+  "version": "1.0",
+  "description": "Adds a copy button to songs in Planning Center services",
+  "icons": {
+    "512": "icons/copy.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://services.planningcenteronline.com/songs/*/arrangements/*"
+      ],
+      "js": ["pco_extension.js"]
+    }
+  ],
+  "permissions": ["*://api.planningcenteronline.com/services/v2/songs/*"]
+}
