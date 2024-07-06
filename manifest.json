@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "PCO Extension",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Adds a copy button to songs in Planning Center services",
   "icons": {
     "512": "icons/copy.png"
