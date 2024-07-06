@@ -11,8 +11,17 @@
       "matches": [
         "*://services.planningcenteronline.com/songs/*/arrangements/*"
       ],
-      "js": ["pco_extension.js"]
+      "js": [
+        "pco_extension.js"
+      ]
     }
   ],
-  "permissions": ["*://api.planningcenteronline.com/services/v2/songs/*"]
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "*://api.planningcenteronline.com/services/v2/songs/*"
+  ]
 }
