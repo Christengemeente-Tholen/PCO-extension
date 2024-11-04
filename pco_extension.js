@@ -20,12 +20,12 @@ if (moduleBar.length > 0) {
                     newButton.innerText = "Copy Lyrics"
                     newButton.href = "#";
                     newButton.id = "pco_extension-button"
-                    newButton.onmouseenter = function(){ this.style.backgroundColor = 'hsl(88, 24%, 92%)'; };
-                    newButton.onmouseleave = function(){ this.style.backgroundColor = '' };
-                    newButton.onmousedown = function(){ this.style.backgroundColor = 'hsl(88, 44%, 40%)' };
-                    newButton.onmouseup = function(){ this.style.backgroundColor = 'hsl(88, 24%, 92%)'; };
-                    newButton.style = 'border-radius: 4px; box-shadow: inset 0px 0px 0px 1px hsl(88, 44%, 40%); padding: 2px 8px; font-weight: 700; font-size: 12px; line-height: 20px;' 
-        
+                    newButton.onmouseenter = function () { this.style.backgroundColor = 'hsl(88, 24%, 92%)'; };
+                    newButton.onmouseleave = function () { this.style.backgroundColor = '' };
+                    newButton.onmousedown = function () { this.style.backgroundColor = 'hsl(88, 44%, 40%)' };
+                    newButton.onmouseup = function () { this.style.backgroundColor = 'hsl(88, 24%, 92%)'; };
+                    newButton.style = 'border-radius: 4px; box-shadow: inset 0px 0px 0px 1px hsl(88, 44%, 40%); padding: 2px 8px; font-weight: 700; font-size: 12px; line-height: 20px;'
+
                     buttonList.appendChild(newButton);
                 }
             })
