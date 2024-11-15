@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "PCO Extension",
-  "version": "1.2",
-  "description": "Adds a copy button to songs in Planning Center services",
+  "version": "1.3",
+  "description": "This extension adds extra functionalities to Planning center online services. A \"Copy Lyrics\" button to songs within songs, and a \"Copy as playlist\" button within the media player of a plan",
   "icons": {
     "512": "icons/copy.png"
   },
@@ -12,7 +12,15 @@
         "*://services.planningcenteronline.com/songs/*/arrangements/*"
       ],
       "js": [
-        "pco_extension.js"
+        "song.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://services.planningcenteronline.com/plans/*"
+      ],
+      "js": [
+        "plan.js"
       ]
     }
   ],
@@ -24,6 +32,7 @@
   "permissions": [
     "*://services.planningcenteronline.com/songs/*/arrangements/*",
     "*://api.planningcenteronline.com/services/v2/songs/*",
+    "*://services.planningcenteronline.com/plans/*",
     "activeTab",
     "tabs"
   ]
