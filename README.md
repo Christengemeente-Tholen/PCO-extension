@@ -6,6 +6,7 @@ A "Copy Lyrics" button to songs within songs:
 
 And a "Copy as playlist" button within the media player of a plan:
 
+![image](https://github.com/user-attachments/assets/8159a5e4-8d5d-4912-b4d6-d1dee1492288)
 
 
 ## Contribute
