@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body style="min-width:400px">
+    <div class="container mt-2">
+        <form action="" id="planningCenterConn">
+            <h3>Connect with the Planning Center</h3>
+            <p>
+                <small class="text-muted">
+                    Fill in the generated Client ID and secret, in order to connect this extension to
+                    Planning Center. You can get both by requesting a Personal Access token from:
+                    <a href="https://api.planningcenteronline.com/oauth/applications" target="_blank" id="tokenHelp"
+                        class="form-text">https://api.planningcenteronline.com/oauth/applications</a>
+                </small>
+                <small class="text-muted">
+                    This information is required to request things like the lyrics from Planning
+                    Center, because manifest V3 doesn't allow the browser to send request to the websites.
+                </small>
+            </p>
+            <div class="mb-3">
+                <label for="client_id" class="form-label">Client ID:</label>
+                <input type="client_id" id="client_id" name="client_id" class="form-control" placeholder="Client ID"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="secret" class="form-label">Secret:</label>
+                <input type="password" id="secret" name="secret" class="form-control" placeholder="Secret" required>
+            </div>
+            <div class="mb-3 d-inline-flex align-items-center">
+                <input type="submit" name="test" value="Test" class="btn btn-secondary">
+                <div class="px-2">
+                    <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                </div>
+                <div id="message"></div>
+            </div>
+        </form>
+    </div>
+    <script src="popup_script.js"></script>
+</body>
+
+</html>
