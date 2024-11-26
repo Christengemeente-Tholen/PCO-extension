@@ -1,4 +1,4 @@
-This extension adds extra functionalities to Planning center online services:
+This [Firefox](https://addons.mozilla.org/nl/firefox/addon/pco-extension/) and [chrome](https://chromewebstore.google.com/detail/pco-extension/mackcnclacojcapnpdbolchjgdpgccim?authuser=0&hl=nl&pli=1) extension adds extra functionalities to Planning center online services:
 
 A "Copy Lyrics" button to songs within songs:
 
