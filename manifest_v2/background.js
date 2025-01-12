@@ -10,3 +10,9 @@ browser.tabs.onUpdated.addListener(function (tabId, changed, tab) {
 }, {
   urls: ["*://services.planningcenteronline.com/plans/*"], properties: ["title"],
 });
+
+browser.tabs.onUpdated.addListener(function (tabId, changed, tab) {
+  browser.tabs.executeScript(null, { file: "songs.js" });
+}, {
+  urls: ["*://services.planningcenteronline.com/songs?*"], properties: ["url"],
+});
