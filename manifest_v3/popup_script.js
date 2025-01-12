@@ -1,10 +1,12 @@
+const ccliNumberElm = document.getElementById("ccli_number");
 const clientIdElm = document.getElementById("client_id");
 const secretElm = document.getElementById("secret");
 const messageElm = document.getElementById("message");
 
-chrome.storage.local.get(["clientId", "secret"], function (items) {
+chrome.storage.local.get(["clientId", "secret", "showCcliNumber"], function (items) {
     clientIdElm.value = items?.clientId || "";
     secretElm.value = items?.secret || "";
+    ccliNumberElm.checked = items?.showCcliNumber || false;
 });
 
 async function checkValues() {
@@ -26,7 +28,7 @@ async function checkValues() {
 }
 
 async function saveValues() {
-    await chrome.storage.local.set({ clientId: clientIdElm.value, secret: secretElm.value });
+    await chrome.storage.local.set({ showCcliNumber: ccliNumberElm.checked, clientId: clientIdElm.value, secret: secretElm.value });
     messageElm.className = "text-success"
     messageElm.innerText = "Changes saved successfully."
 }

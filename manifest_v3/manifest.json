@@ -22,6 +22,14 @@
       "js": [
         "plan.js"
       ]
+    },
+    {
+      "matches": [
+        "*://services.planningcenteronline.com/songs?*"
+      ],
+      "js": [
+        "songs.js"
+      ]
     }
   ],
   "background": {
@@ -30,7 +38,8 @@
   "host_permissions": [
     "*://services.planningcenteronline.com/songs/*/arrangements/*",
     "*://api.planningcenteronline.com/services/v2/songs/*",
-    "*://services.planningcenteronline.com/plans/*"
+    "*://services.planningcenteronline.com/plans/*",
+    "*://services.planningcenteronline.com/songs?*"
   ],
   "permissions": [
     "scripting",
