@@ -4,7 +4,7 @@ browser.storage.local.get(["showCcliNumber"]).then(planningCenterSettings => {
         urlParams.set("offset", (urlParams.get("page") - 1) * urlParams.get("per_page"));
         fetch(`https://api.planningcenteronline.com/services/v2/songs/?${urlParams.toString()}`).then(response => {
             if (!response.ok) {
-                console.error(`Received incorrect response from https://api.planningcenteronline.com/services/v2/songs/${result[1]}/arrangements/${result[2]} api`)
+                console.error(`Received incorrect response from https://api.planningcenteronline.com/services/v2/songs/?${urlParams.toString()} api`)
             }
             return response.json();
         }).then(data => {
