@@ -3,9 +3,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, changed, tab) {
   if (tab.url.match(/[^/]*:\/\/services\.planningcenteronline\.com\/songs\/[^/]*\/arrangements\/[^/]*/)) {
     chrome.scripting.executeScript({ target: { tabId: tabId }, files: ["song.js"] });
   } else if (tab.url.match(/[^/]*:\/\/services\.planningcenteronline\.com\/plans\/[^/]*/)) {
-    chrome.scripting.executeScript({ target: { tabId: tabId }, files: ["plan.js"] });
+    chrome.scripting.executeScript({ target: { tabId: tabId }, files: ["global.js", "plan.js"] });
   } else if (tab.url.match(/[^/]*:\/\/services\.planningcenteronline\.com\/songs\?[^/]*/)) {
-    chrome.scripting.executeScript({ target: { tabId: tabId }, files: ["songs.js"] });
+    chrome.scripting.executeScript({ target: { tabId: tabId }, files: ["global.js", "songs.js"] });
   }
 });
 

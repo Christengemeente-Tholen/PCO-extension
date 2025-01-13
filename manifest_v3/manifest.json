@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "PCO Extension",
-  "version": "1.3",
+  "version": "1.5",
   "description": "This extension adds extra functionalities to Planning center online services.",
   "icons": {
     "512": "icons/copy.png"
@@ -20,6 +20,7 @@
         "*://services.planningcenteronline.com/plans/*"
       ],
       "js": [
+        "global.js",
         "plan.js"
       ]
     },
@@ -28,6 +29,7 @@
         "*://services.planningcenteronline.com/songs?*"
       ],
       "js": [
+        "global.js",
         "songs.js"
       ]
     }
