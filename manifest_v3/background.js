@@ -43,3 +43,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true;
 }
 );
+
+// run on install or update
+chrome.runtime.onInstalled.addListener(async function (details) {
+  const current = await chrome.storage.local.get(["autoremoveHeadingItems"]);
+  if (current?.autoremoveHeadingItems == undefined) {
+    const initialAutoremoveHeadingItems = [
+      "vers",
+      "verse",
+      "couplet",
+      "bridge",
+      "chorus",
+      "pre-chorus",
+      "intermezzo",
+      "intro",
+      "tag",
+    ];
+    await chrome.storage.local.set({ autoremoveHeadingItems: initialAutoremoveHeadingItems });
+  }
+})

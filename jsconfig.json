@@ -1,8 +1,16 @@
 {
-    "typeAcquisition": {
-        "include": [
-            "firefox-webext-browser",
+    "compilerOptions": {
+        "types": [
             "chrome"
-        ]
-    }
+        ],
+        "target": "es6",
+        "checkJs": true,
+        "noEmit": true
+    },
+    "typeAcquisition": {
+        "enable": true
+    },
+    "include": [
+        "node_modules/web-ext-types/global/index.d.ts"
+    ]
 }

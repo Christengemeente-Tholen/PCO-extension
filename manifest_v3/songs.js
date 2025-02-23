@@ -19,7 +19,9 @@ chrome.storage.local.get(["showCcliNumber"]).then(planningCenterSettings => {
   }
 });
 
-
+/**
+ * Update the CCLI column
+ */
 function updateCcliInfo() {
   const urlParams = new URLSearchParams(window.location.search);
   urlParams.set("offset", (urlParams.get("page") - 1) * urlParams.get("per_page"));

@@ -18,3 +18,22 @@ browser.tabs.onUpdated.addListener(function (tabId, changed, tab) {
 }, {
   urls: ["*://services.planningcenteronline.com/songs?*"], properties: ["url"],
 });
+
+// run on install or update
+browser.runtime.onInstalled.addListener(async function (details) {
+  const current = await browser.storage.local.get(["autoremoveHeadingItems"]);
+  if (current?.autoremoveHeadingItems == undefined) {
+    const initialAutoremoveHeadingItems = [
+      "vers",
+      "verse",
+      "couplet",
+      "bridge",
+      "chorus",
+      "pre-chorus",
+      "intermezzo",
+      "intro",
+      "tag",
+    ];
+    await browser.storage.local.set({ autoremoveHeadingItems: initialAutoremoveHeadingItems });
+  }
+})

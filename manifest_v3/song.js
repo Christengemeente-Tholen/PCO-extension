@@ -1,3 +1,14 @@
+/**
+ * Removed the html tags from the passed string
+ * @param {string} html 
+ * @returns string
+ */
+function stripHtml(html) {
+  let tmp = document.createElement("DIV");
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || "";
+}
+
 moduleBar = document.getElementsByClassName("module-header");
 if (moduleBar.length > 0) {
   const buttonList = moduleBar.item(0).querySelector(".flex");
@@ -14,7 +25,28 @@ if (moduleBar.length > 0) {
       if (buttonList.querySelector("#pco_extension-button") === null) {
         const newButton = document.createElement("a");
         newButton.onclick = () => {
-          navigator.clipboard.writeText(data["data"]["attributes"]["lyrics"]);
+          /** @type {string} */
+          let lyrics = data["data"]["attributes"]["lyrics"];
+          chrome.storage.local.get(["autoremoveHeading", "autoremoveHeadingItems"]).then(planningCenterSettings => {
+            if (planningCenterSettings.autoremoveHeading) {
+              /** @type {string[]} */
+              let autoremoveHeadingItems = planningCenterSettings.autoremoveHeadingItems || [];
+              // remove html tags
+              lyrics = stripHtml(lyrics);
+              // strip text from lyrics based on set value
+              autoremoveHeadingItems.forEach(element => {
+                lyrics = lyrics.replace(RegExp("^(?:" + element + ")(| \\d+| \\d+:)(| \\(2x\\)| 2x)$", "gmi"), '')
+              })
+              // remove extra whitespace
+              lyrics = lyrics.replace(/\n\n\n/gm, "\n\n");
+              // remove all unneeded whitespace before and behind the lyrics
+              lyrics = lyrics.replace(/^\n+/, "");
+              lyrics = lyrics.replace(/\n+$/, "");
+              navigator.clipboard.writeText(lyrics);
+            } else {
+              navigator.clipboard.writeText(lyrics);
+            }
+          });
         }
         newButton.innerText = "Copy Lyrics"
         newButton.href = "#";

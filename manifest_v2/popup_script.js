@@ -1,12 +1,47 @@
+/** @type {HTMLInputElement} */
 const ccliNumberElm = document.getElementById("ccli_number");
+/** @type {HTMLInputElement} */
 const messageElm = document.getElementById("message");
+/** @type {HTMLInputElement} */
+const autoremoveHeadingElm = document.getElementById("autoremove_heading");
+/** @type {HTMLSelectElement} */
+const autoremoveHeadingItemsElm = document.getElementById("autoremove_heading_items");
+/** @type {HTMLInputElement} */
+const addHeadingItemTextElm = document.getElementById("add_heading_item_text");
 
-browser.storage.local.get(["showCcliNumber"], function (items) {
+/**
+ * Add a new option to the autoremove_heading_items select object
+ * @param {string} text 
+ */
+function addNewOption(text) {
+  const opt = document.createElement('option');
+  opt.value = text;
+  opt.innerHTML = text;
+  autoremoveHeadingItemsElm.appendChild(opt);
+}
+
+browser.storage.local.get(["showCcliNumber", "autoremoveHeading", "autoremoveHeadingItems"], function (items) {
   ccliNumberElm.checked = items?.showCcliNumber || false;
+  autoremoveHeadingElm.checked = items?.autoremoveHeading || false;
+  items?.autoremoveHeadingItems.forEach(element => {
+    addNewOption(element);
+  });
 });
 
+document.getElementById("remove_heading_item").addEventListener("click", () => {
+  Array.from(autoremoveHeadingItemsElm.selectedOptions).forEach((option) => {
+    option.remove();
+  })
+})
+
+document.getElementById("add_heading_item").addEventListener("click", () => {
+  addNewOption(addHeadingItemTextElm.value);
+})
+
 async function saveValues() {
-  await browser.storage.local.set({ showCcliNumber: ccliNumberElm.checked });
+  const newRemoveHeadingItems = Array.from(autoremoveHeadingItemsElm.options).map(e => e.value);
+
+  await browser.storage.local.set({ showCcliNumber: ccliNumberElm.checked, autoremoveHeadingItems: newRemoveHeadingItems, autoremoveHeading: autoremoveHeadingElm.checked });
   messageElm.className = "text-success"
   messageElm.innerText = "Changes saved successfully."
 }

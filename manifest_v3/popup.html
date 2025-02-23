@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>PCO Extension</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,6 +41,29 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="ccli_number">
                     <label class="form-check-label" for="ccli_number">Show CCLI number in song list</label>
                 </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="autoremove_heading">
+                    <label class="form-check-label" for="autoremove_heading">Automatically remove the following lines
+                        when copying lyrics</label>
+                </div>
+            </div>
+            <small>This will remove the following lines that only contains the specified text,
+                <br>with a number and maybe a ":" behind it (case-insensitive).
+                <br>Ex: "chorus" removes lines with: "Chorus 1", "Chorus 2 (2X)" and "Chorus 3:"
+            </small>
+            <div class="input-group mb-3">
+                <select multiple class="form-control" id="autoremove_heading_items" name="autoremove_heading_items"
+                    size="5">
+                </select>
+                <button id="remove_heading_item" type="button" class="btn btn-primary">Remove<br>
+                    selected</button>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Item to add" aria-label="Item to add"
+                    id="add_heading_item_text" name="add_heading_item_text" />
+                <button type="button" id="add_heading_item" class="btn btn-primary">Add</button>
             </div>
             <div class="mb-3 d-inline-flex align-items-center">
                 <input type="submit" name="test" value="Test" class="btn btn-secondary">

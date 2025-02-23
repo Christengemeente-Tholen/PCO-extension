@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"@types/chrome": "^0.0.306"
+	},
+	"dependencies": {
+		"web-ext": "^8.4.0",
+		"web-ext-types": "^3.2.1"
+	}
+}

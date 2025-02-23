@@ -1,3 +1,8 @@
+/**
+ * Wait for the element to exist within the page
+ * @param {string} selector 
+ * @returns {Promise<HTMLElement>}
+ */
 function elementReady(selector) {
   return new Promise((resolve, reject) => {
     const el = document.querySelector(selector);
