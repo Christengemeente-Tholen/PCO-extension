@@ -16,7 +16,7 @@ const addHeadingItemTextElm = document.getElementById("add_heading_item_text");
 function addNewOption(text) {
   const opt = document.createElement('option');
   opt.value = text;
-  opt.innerHTML = text;
+  opt.innerText = text;
   autoremoveHeadingItemsElm.appendChild(opt);
 }
 

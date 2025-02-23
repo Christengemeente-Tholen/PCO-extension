@@ -4,9 +4,8 @@
  * @returns string
  */
 function stripHtml(html) {
-  let tmp = document.createElement("DIV");
-  tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || "";
+  let doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
 }
 
 moduleBar = document.getElementsByClassName("module-header");
