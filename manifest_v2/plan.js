@@ -1,3 +1,4 @@
+/** @type {HTMLTableHeaderCellElement} */
 test = document.querySelector(".app-header")
 const currentPlan = JSON.parse(test.getAttribute("data-react-props"))?.current_plan;
 if (currentPlan !== undefined) {

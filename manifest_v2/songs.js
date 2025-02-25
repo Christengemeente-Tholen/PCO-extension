@@ -1,6 +1,8 @@
 browser.storage.local.get(["showCcliNumber"]).then(planningCenterSettings => {
   if (planningCenterSettings.showCcliNumber) {
+    /** @type {HTMLDivElement} */
     songs_table = document.querySelector('[data-react-class="Components.Songs.Index.Default"]');
+    /** @type {HTMLDivElement} */
     const element = songs_table.querySelector('[role="grid"]');
     // on page update
     updateCcliInfo();

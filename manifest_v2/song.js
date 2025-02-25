@@ -10,6 +10,7 @@ function stripHtml(html) {
 
 moduleBar = document.getElementsByClassName("module-header");
 if (moduleBar.length > 0) {
+  /** @type {HTMLDivElement} */
   const buttonList = moduleBar.item(0).querySelector(".flex");
   const regex = /\/songs\/(\d+)\/arrangements\/(\d+)/
   const result = regex.exec(window.location.pathname);
