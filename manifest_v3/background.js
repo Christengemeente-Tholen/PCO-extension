@@ -35,8 +35,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       await requestData(request.script, `https://api.planningcenteronline.com/services/v2/songs/${request.song}/arrangements/${request.arrangement}`, sendResponse)
     } else if (request.script === "plan") {
       await requestData(request.script, `https://services.planningcenteronline.com/service_types/${request?.ministry_id}/plans/${request?.id}/media_player`, sendResponse)
-    } else if (request.script == "songs") {
+    } else if (request.script === "songs") {
       await requestData(request.script, `https://api.planningcenteronline.com/services/v2/songs?${request.params}`, sendResponse)
+    } else if (request.script === "ccli") {
+      await requestData(request.script, `https://api.planningcenteronline.com/services/v2/songs/${request.song}`, sendResponse)
     }
   })();
 
