@@ -70,7 +70,7 @@ if (moduleBar.length > 0) {
       try {
         const response = await fetch(`https://api.planningcenteronline.com/services/v2/songs/${result[1]}`)
         const data = await response.json();
-        if (buttonList.querySelector("#pco_extension-button") === null) {
+        if (buttonList.querySelector("#pco_extension-ccli_button") === null) {
           const newButton = document.createElement("a");
           newButton.innerText = "Goto CCLI"
           newButton.href = `https://songselect.ccli.com/songs/${data?.data?.attributes?.ccli_number}`;
