@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "PCO Extension",
-  "version": "1.7",
+  "version": "1.9",
   "description": "This extension adds extra functionalities to Planning center online services.",
   "icons": {
     "512": "icons/copy.png"
