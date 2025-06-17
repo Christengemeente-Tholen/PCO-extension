@@ -1,6 +1,8 @@
 /** @type {HTMLInputElement} */
 const ccliNumberElm = document.getElementById("ccli_number");
 /** @type {HTMLInputElement} */
+const youtubePlanSongsElm = document.getElementById("youtube_plan_songs");
+/** @type {HTMLInputElement} */
 const messageElm = document.getElementById("message");
 /** @type {HTMLInputElement} */
 const autoremoveHeadingElm = document.getElementById("autoremove_heading");
@@ -20,8 +22,9 @@ function addNewOption(text) {
   autoremoveHeadingItemsElm.appendChild(opt);
 }
 
-browser.storage.local.get(["showCcliNumber", "autoremoveHeading", "autoremoveHeadingItems"], function (items) {
+browser.storage.local.get(["showCcliNumber", "autoremoveHeading", "autoremoveHeadingItems", "showYoutubeInPlans"], function (items) {
   ccliNumberElm.checked = items?.showCcliNumber || false;
+  youtubePlanSongsElm.checked = items?.showYoutubeInPlans || false;
   autoremoveHeadingElm.checked = items?.autoremoveHeading || false;
   items?.autoremoveHeadingItems.forEach(element => {
     addNewOption(element);
@@ -41,7 +44,7 @@ document.getElementById("add_heading_item").addEventListener("click", () => {
 async function saveValues() {
   const newRemoveHeadingItems = Array.from(autoremoveHeadingItemsElm.options).map(e => e.value);
 
-  await browser.storage.local.set({ showCcliNumber: ccliNumberElm.checked, autoremoveHeadingItems: newRemoveHeadingItems, autoremoveHeading: autoremoveHeadingElm.checked });
+  await browser.storage.local.set({ showCcliNumber: ccliNumberElm.checked, autoremoveHeadingItems: newRemoveHeadingItems, autoremoveHeading: autoremoveHeadingElm.checked, showYoutubeInPlans: youtubePlanSongsElm.checked });
   messageElm.className = "text-success"
   messageElm.innerText = "Changes saved successfully."
 }

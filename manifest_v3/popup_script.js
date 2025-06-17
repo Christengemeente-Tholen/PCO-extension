@@ -1,6 +1,8 @@
 /** @type {HTMLInputElement} */
 const ccliNumberElm = document.getElementById("ccli_number");
 /** @type {HTMLInputElement} */
+const youtubePlanSongsElm = document.getElementById("youtube_plan_songs");
+/** @type {HTMLInputElement} */
 const clientIdElm = document.getElementById("client_id");
 /** @type {HTMLInputElement} */
 const secretElm = document.getElementById("secret");
@@ -24,9 +26,10 @@ function addNewOption(text) {
   autoremoveHeadingItemsElm.appendChild(opt);
 }
 
-chrome.storage.local.get(["clientId", "secret", "showCcliNumber", "autoremoveHeading", "autoremoveHeadingItems"], function (items) {
+chrome.storage.local.get(["clientId", "secret", "showCcliNumber", "autoremoveHeading", "autoremoveHeadingItems", "showYoutubeInPlans"], function (items) {
   clientIdElm.value = items?.clientId || "";
   secretElm.value = items?.secret || "";
+  youtubePlanSongsElm.checked = items?.showYoutubeInPlans || false;
   ccliNumberElm.checked = items?.showCcliNumber || false;
   autoremoveHeadingElm.checked = items?.autoremoveHeading || false;
   items?.autoremoveHeadingItems.forEach(element => {
@@ -65,7 +68,7 @@ document.getElementById("add_heading_item").addEventListener("click", () => {
 async function saveValues() {
   const newRemoveHeadingItems = Array.from(autoremoveHeadingItemsElm.options).map(e => e.value);
 
-  await chrome.storage.local.set({ showCcliNumber: ccliNumberElm.checked, clientId: clientIdElm.value, secret: secretElm.value, autoremoveHeadingItems: newRemoveHeadingItems, autoremoveHeading: autoremoveHeadingElm.checked });
+  await chrome.storage.local.set({ showCcliNumber: ccliNumberElm.checked, clientId: clientIdElm.value, secret: secretElm.value, autoremoveHeadingItems: newRemoveHeadingItems, autoremoveHeading: autoremoveHeadingElm.checked, showYoutubeInPlans: youtubePlanSongsElm.checked });
   messageElm.className = "text-success"
   messageElm.innerText = "Changes saved successfully."
 }

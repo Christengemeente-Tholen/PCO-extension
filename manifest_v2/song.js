@@ -35,7 +35,6 @@ if (moduleBar.length > 0) {
           newButton.onclick = async () => {
             /** @type {string} */
             let lyrics = data?.data?.attributes?.lyrics;
-            console.log(data);
             const planningCenterSettings = await browser.storage.local.get(["autoremoveHeading", "autoremoveHeadingItems"]);
             if (planningCenterSettings.autoremoveHeading) {
               /** @type {string[]} */
